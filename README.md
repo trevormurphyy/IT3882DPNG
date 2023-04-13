@@ -10,6 +10,6 @@ gcc -g -Wall perlin_noise_seq.c -o perlin_noise_seq -lm
 
 ```bash
 gcc -g -Wall perlin_noise_omp.c -o perlin_noise_omp -lm -fopenmp
-./perlin_noise_seq
+./perlin_noise_omp
 ```
 

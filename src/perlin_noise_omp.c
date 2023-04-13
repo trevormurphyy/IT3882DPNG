@@ -106,7 +106,7 @@ int main(int argc, char *argv[])
     }
 
     elapsedTime = omp_get_wtime() - startTime;
-    printf("Time to generate image: %f\n", elapsedTime);
+    printf("Parallel time to generate image: %f\n", elapsedTime);
 
     stbi_write_jpg("output_omp.jpg", WIDTH, HEIGHT, CHANNELS, data, WIDTH * CHANNELS);
 

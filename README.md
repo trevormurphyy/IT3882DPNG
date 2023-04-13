@@ -4,6 +4,6 @@
 compile with 
 
 ```bash
-gcc perlin-noise.c -o perlin_noise -lm
+gcc -g -Wall perlin-noise.c -o perlin_noise -lm
 ./perlin_noise
 ```

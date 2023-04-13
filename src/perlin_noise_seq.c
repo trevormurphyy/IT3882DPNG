@@ -1,6 +1,6 @@
 /*
 
-gcc perlin-noise.c -o perlin_noise -lm
+gcc perlin_noise_seq.c -o perlin_noise_seq -lm
 ./perlin_noise
 
 */

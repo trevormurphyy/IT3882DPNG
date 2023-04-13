@@ -9,7 +9,7 @@ gcc -g -Wall perlin_noise_seq.c -o perlin_noise_seq -lm
 ### Openmp
 
 ```bash
-gcc -g -Wall perlin_noise_omp.c -o perlin_noise_omp -lm
+gcc -g -Wall perlin_noise_omp.c -o perlin_noise_omp -lm -fopenmp
 ./perlin_noise_seq
 ```
 

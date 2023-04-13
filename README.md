@@ -1,9 +1,15 @@
 # IT3882DPNG
 2d Perlin Noise Generator
-
+### Sequential
 compile with 
+```bash
+gcc -g -Wall perlin_noise_seq.c -o perlin_noise_seq -lm
+./perlin_noise_seq
+```
+### Openmp
 
 ```bash
-gcc -g -Wall perlin_noise_seq.c -o perlin_noise -lm
-./perlin_noise
+gcc -g -Wall perlin_noise_omp.c -o perlin_noise_omp -lm
+./perlin_noise_seq
 ```
+

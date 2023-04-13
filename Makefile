@@ -1,4 +1,4 @@
-all: sequential omp
+all: seq omp
 
 seq: src/perlin_noise_seq.c
 	gcc -g -Wall src/perlin_noise_seq.c -o bin/perlin_noise_seq -lm

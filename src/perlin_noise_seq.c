@@ -12,8 +12,8 @@ gcc perlin-noise.c -o perlin_noise -lm
 #include "stb_image_write.h"
 
 // Constants
-#define WIDTH 4096
-#define HEIGHT 4096
+#define WIDTH 10000
+#define HEIGHT 10000
 #define CHANNELS 3
 
 // Interpolation function
@@ -93,7 +93,7 @@ int main(int argc, char *argv[]) {
     float elapsedTime = (float)(clock() - startTime) / CLOCKS_PER_SEC;
     printf("Time to generate image: %f", elapsedTime);
     
-    stbi_write_jpg("output.jpg", WIDTH, HEIGHT, CHANNELS, data, WIDTH * CHANNELS);
+    stbi_write_jpg("output_seq.jpg", WIDTH, HEIGHT, CHANNELS, data, WIDTH * CHANNELS);
 
     // Free the allocated memory
     free(data);

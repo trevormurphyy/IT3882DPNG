@@ -12,8 +12,8 @@ gcc perlin-noise.c -o perlin_noise -lm
 #include "stb_image_write.h"
 
 // Constants
-#define WIDTH 10000
-#define HEIGHT 10000
+#define WIDTH 4096
+#define HEIGHT 4096
 #define CHANNELS 3
 
 // Interpolation function
@@ -71,7 +71,7 @@ int main(int argc, char *argv[]) {
     float *grad_x = malloc(WIDTH * HEIGHT * sizeof(float));
     float *grad_y = malloc(WIDTH * HEIGHT * sizeof(float));
 
-    time_t startTime = time(NULL);
+    clock_t startTime = clock();
     generate_gradients(grad_x, grad_y, WIDTH, HEIGHT);
 
     float scale = 10.0;
@@ -90,9 +90,10 @@ int main(int argc, char *argv[]) {
         }
     }
 
-    double elapsedTime = difftime(time(NULL), startTime);
+    float elapsedTime = (float)(clock() - startTime) / CLOCKS_PER_SEC;
     printf("Time to generate image: %f", elapsedTime);
-    stbi_write_png("output.png", WIDTH, HEIGHT, CHANNELS, data, WIDTH * CHANNELS);
+    
+    stbi_write_jpg("output.jpg", WIDTH, HEIGHT, CHANNELS, data, WIDTH * CHANNELS);
 
     // Free the allocated memory
     free(data);

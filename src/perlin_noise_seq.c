@@ -91,7 +91,7 @@ int main(int argc, char *argv[]) {
     }
 
     float elapsedTime = (float)(clock() - startTime) / CLOCKS_PER_SEC;
-    printf("Time to generate image: %f", elapsedTime);
+    printf("Time to generate image: %f\n", elapsedTime);
     
     stbi_write_jpg("output_seq.jpg", WIDTH, HEIGHT, CHANNELS, data, WIDTH * CHANNELS);
 

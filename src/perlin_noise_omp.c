@@ -1,9 +1,3 @@
-/*
-
-gcc perlin_noise_omp.c -o perlin_noise_omp -lm -fopenmp
-./perlin_noise_omp
-
-*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -106,9 +100,10 @@ int main(int argc, char *argv[])
     }
 
     elapsedTime = omp_get_wtime() - startTime;
-    printf("Parallel time to generate image: %f\n", elapsedTime);
+    elapsedTime *= 1000;
+    printf("Parallel time to generate image: %f ms\n", elapsedTime);
 
-    stbi_write_jpg("output_omp.jpg", WIDTH, HEIGHT, CHANNELS, data, WIDTH * CHANNELS);
+    stbi_write_jpg("out/omp.jpg", WIDTH, HEIGHT, CHANNELS, data, WIDTH * CHANNELS);
 
     // Free the allocated memory
     free(data);

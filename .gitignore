@@ -1,4 +1,5 @@
 bin/
+out/
 *.dSYM
 .DS_Store
 *.jpg

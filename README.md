@@ -1,47 +1,28 @@
 # IT3882DPNG
-2d Perlin Noise Generator
+2d Perlin Noise Generator using multiple implementations
+- Sequential
+- OpenMP
+- CUDA
 
-## Sequential
-compile with 
+## Compile all
 ```bash
-gcc -g -Wall perlin_noise_seq.c -o perlin_noise_seq -lm
-./perlin_noise_seq
+make
 ```
-
-## Openmp
-```bash
-gcc -g -Wall perlin_noise_omp.c -o perlin_noise_omp -lm -fopenmp
-./perlin_noise_omp
+## Run all
 ```
-
-## Using the Makefile
-
-### Compile everything
-```bash
-make all
-```
-
-### Compile sequential program
-```bash
-make seq
-```
-
-### Compile parallel omp program
-```bash
-make omp
-```
-
-### Run everything
-```bash
 make run-all
 ```
+## Specific make targets:
 
-### Run sequential program
-```bash
-make run-seq
+### Compile
 ```
-
-### Run parallel omp program
-```bash
+make seq
+make omp
+make cuda
+```
+### Run
+```
+make run-seq
 make run-omp
+make run-cuda
 ```

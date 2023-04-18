@@ -1,9 +1,3 @@
-/*
-
-gcc perlin_noise_seq.c -o perlin_noise_seq -lm
-./perlin_noise
-
-*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -91,9 +85,10 @@ int main(int argc, char *argv[]) {
     }
 
     float elapsedTime = (float)(clock() - startTime) / CLOCKS_PER_SEC;
-    printf("Sequential time to generate image: %f\n", elapsedTime);
+    elapsedTime *= 1000;
+    printf("Sequential time to generate image: %f ms\n", elapsedTime);
     
-    stbi_write_jpg("output_seq.jpg", WIDTH, HEIGHT, CHANNELS, data, WIDTH * CHANNELS);
+    stbi_write_jpg("out/seq.jpg", WIDTH, HEIGHT, CHANNELS, data, WIDTH * CHANNELS);
 
     // Free the allocated memory
     free(data);

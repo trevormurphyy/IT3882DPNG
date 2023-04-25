@@ -79,8 +79,8 @@ int main(int argc, char *argv[]) {
 
             int index = (y * WIDTH + x) * CHANNELS;
             data[index] = color;
-            data[index + 1] = color;
-            data[index + 2] = color;
+            data[index + 1] = color / 2;
+            data[index + 2] = color / 2;
         }
     }
 

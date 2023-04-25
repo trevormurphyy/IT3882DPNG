@@ -80,9 +80,10 @@ __global__ void render_image(unsigned char *data, float *grad_x, float *grad_y, 
         unsigned char color = (unsigned char)(value * 255);
 
         int index = (y * width + x) * CHANNELS;
-        data[index] = color;
+        
+        data[index] = color / 2;
         data[index + 1] = color;
-        data[index + 2] = color;
+        data[index + 2] = color / 2;
     }
 }
 

@@ -93,8 +93,8 @@ int main(int argc, char *argv[])
             unsigned char color = (unsigned char)(value * 255);
 
             int index = (y * WIDTH + x) * CHANNELS;
-            data[index] = color;
-            data[index + 1] = color;
+            data[index] = color / 2;
+            data[index + 1] = color / 2;
             data[index + 2] = color;
         }
     }

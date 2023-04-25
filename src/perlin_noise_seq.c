@@ -12,7 +12,7 @@
 
 // Interpolation function
 float lerp(float a, float b, float t) {
-    return a + (b - a) * t;
+    return (a + (b - a) * t) * 5;
 }
 
 // Smoothstep function
@@ -68,7 +68,7 @@ int main(int argc, char *argv[]) {
     clock_t startTime = clock();
     generate_gradients(grad_x, grad_y, WIDTH, HEIGHT);
 
-    float scale = 10.0;
+    float scale = 2500.0;
 
     for (int y = 0; y < HEIGHT; y++) {
         for (int x = 0; x < WIDTH; x++) {

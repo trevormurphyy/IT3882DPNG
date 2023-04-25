@@ -14,7 +14,7 @@
 // Interpolation function
 __device__ float lerp(float a, float b, float t)
 {
-    return a + (b - a) * t;
+    return (a + (b - a) * t) * 5;
 }
 
 // Smoothstep function
@@ -109,7 +109,7 @@ int main(int argc, char *argv[])
     generate_gradients<<<gridSize, blockSize>>>(d_grad_x, d_grad_y, WIDTH, HEIGHT, time(NULL));
     cudaDeviceSynchronize();
 
-    float scale = 10.0;
+    float scale = 2500.0;
     render_image<<<gridSize, blockSize>>>(d_data, d_grad_x, d_grad_y, WIDTH, HEIGHT, scale);
     cudaDeviceSynchronize();
     cudaEventRecord(stop, 0);

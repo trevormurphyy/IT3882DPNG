@@ -6,10 +6,6 @@
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "stb_image_write.h"
 
-// Constants
-#define WIDTH 10000
-#define HEIGHT 10000
-#define CHANNELS 3
 
 // Interpolation function
 __device__ float lerp(float a, float b, float t)
@@ -89,10 +85,21 @@ __global__ void render_image(unsigned char *data, float *grad_x, float *grad_y, 
 
 int main(int argc, char *argv[])
 {
+    int BLOCK_SIZE;
+    long WIDTH, HEIGHT;
+    int CHANNELS = 3;
     float elapsedTime;
     cudaEvent_t start, stop;
     cudaEventCreate(&start);
     cudaEventCreate(&stop);
+
+    if (argc != 3) {
+        fprintf(stderr, "\nUSAGE: bin/perlin_noise_omp <block_size> <image_size>\n\n");
+        exit(1);
+    }
+    BLOCK_SIZE = atoi(argv[1]);
+    WIDTH = atoi(argv[2]);
+    HEIGHT = atoi(argv[2]);
 
     // Allocate the data array on the device
     unsigned char *d_data;

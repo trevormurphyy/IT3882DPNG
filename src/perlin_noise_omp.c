@@ -6,10 +6,6 @@
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "stb_image_write.h"
 
-// Constants
-#define WIDTH 10000
-#define HEIGHT 10000
-#define CHANNELS 3
 
 // Interpolation function
 float lerp(float a, float b, float t)
@@ -67,9 +63,19 @@ float perlin(float x, float y, float *grad_x, float *grad_y, int width, int heig
 
 int main(int argc, char *argv[])
 {
+    long WIDTH, HEIGHT;
+    int CHANNELS = 3;
     double startTime, elapsedTime;
     int x;
-    int nThreads = 10;
+    int nThreads;
+    
+    if (argc != 3) {
+        fprintf(stderr, "\nUSAGE: bin/perlin_noise_omp <thread_count> <image_size>\n\n");
+        exit(1);
+    }
+    nThreads = atoi(argv[1]);
+    WIDTH = atoi(argv[2]);
+    HEIGHT = atoi(argv[2]);
     omp_set_num_threads(nThreads);
 
     // Allocate the data array on the heap

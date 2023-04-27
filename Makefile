@@ -17,10 +17,10 @@ cuda: src/perlin_noise_cuda.cu
 run-all: run-seq run-omp run-cuda
 
 run-seq: bin/perlin_noise_seq
-	bin/perlin_noise_seq 
+	bin/perlin_noise_seq 10000
 
 run-omp: bin/perlin_noise_omp
-	bin/perlin_noise_omp 
+	bin/perlin_noise_omp 10 10000
 
 run-cuda: bin/perlin_noise_cuda
-	bin/perlin_noise_cuda 
+	bin/perlin_noise_cuda 16 10000

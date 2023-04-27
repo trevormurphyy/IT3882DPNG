@@ -1,0 +1,17 @@
+#!/bin/bash
+#SBATCH --account=isu102
+#SBATCH --job-name="perlin_noise"
+#SBATCH --output="outputPerlinNoise.%j.%N.out"
+#SBATCH --partition=gpu-shared 		# define GPU partition
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=20
+#SBATCH --gpus=1 			# define type of GPU
+#SBATCH --mem=20GB
+#SBATCH -t 00:10:00
+
+#Load the module
+module load gpu
+module load cuda
+
+#Run the job
+bin/perlin_noise_cuda

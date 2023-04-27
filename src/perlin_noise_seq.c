@@ -5,10 +5,6 @@
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "stb_image_write.h"
 
-// Constants
-#define WIDTH 10000
-#define HEIGHT 10000
-#define CHANNELS 3
 
 // Interpolation function
 float lerp(float a, float b, float t) {
@@ -59,6 +55,17 @@ float perlin(float x, float y, float *grad_x, float *grad_y, int width, int heig
 }
 
 int main(int argc, char *argv[]) {
+    // Constants
+    long WIDTH, HEIGHT;
+    int CHANNELS = 3;
+
+    if (argc != 2) {
+        fprintf(stderr, "\nUSAGE: bin/perlin_noise_seq <image_size>\n\n");
+        exit(1);
+    }
+    WIDTH = atoi(argv[1]);
+    HEIGHT = atoi(argv[1]);
+    
     // Allocate the data array on the heap
     unsigned char *data = (unsigned char *)malloc(WIDTH * HEIGHT * CHANNELS * sizeof(unsigned char));
 

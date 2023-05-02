@@ -14,4 +14,8 @@ module load gpu
 module load cuda
 
 #Run the job
-bin/perlin_noise_cuda
+bin/perlin_noise_seq 10000
+
+bin/perlin_noise_omp 10 10000
+
+bin/perlin_noise_cuda 16 10000

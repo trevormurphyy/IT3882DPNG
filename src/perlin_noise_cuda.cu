@@ -125,7 +125,7 @@ int main(int argc, char *argv[])
     cudaEventSynchronize(stop);
 
     cudaEventElapsedTime(&elapsedTime, start, stop);
-    printf("CUDA time to generate image: %f ms\n", elapsedTime);
+    printf("CUDA time to generate [%dx%d] image with %d block size: %f ms\n", WIDTH, HEIGHT, BLOCK_SIZE, elapsedTime);
 
     // Copy the data from the device to the host
     unsigned char *h_data = (unsigned char *)malloc(WIDTH * HEIGHT * CHANNELS * sizeof(unsigned char));

@@ -26,3 +26,9 @@ make run-seq
 make run-omp
 make run-cuda
 ```
+
+### Run on Expanse
+1. Copy all files in directory to expanse
+2. Load gpu and cuda modules: `module load gpu; module load cuda`
+3. Compile all files: `make all`
+3. Submit jobscript: `sbatch perlin_noise_job.sb`

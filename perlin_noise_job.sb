@@ -14,8 +14,46 @@ module load gpu
 module load cuda
 
 #Run the job
+bin/perlin_noise_seq 5000
+
+bin/perlin_noise_omp 2 5000
+bin/perlin_noise_omp 4 5000
+bin/perlin_noise_omp 6 5000
+bin/perlin_noise_omp 8 5000
+bin/perlin_noise_omp 10 5000
+
+bin/perlin_noise_cuda 1 5000
+bin/perlin_noise_cuda 2 5000
+bin/perlin_noise_cuda 4 5000
+bin/perlin_noise_cuda 8 5000
+bin/perlin_noise_cuda 16 5000
+
+
+bin/perlin_noise_seq 7500
+
+bin/perlin_noise_omp 2 7500
+bin/perlin_noise_omp 4 7500
+bin/perlin_noise_omp 6 7500
+bin/perlin_noise_omp 8 7500
+bin/perlin_noise_omp 10 7500
+
+bin/perlin_noise_cuda 1 7500
+bin/perlin_noise_cuda 2 7500
+bin/perlin_noise_cuda 4 7500
+bin/perlin_noise_cuda 8 7500
+bin/perlin_noise_cuda 16 7500
+
+
 bin/perlin_noise_seq 10000
 
+bin/perlin_noise_omp 2 10000
+bin/perlin_noise_omp 4 10000
+bin/perlin_noise_omp 6 10000
+bin/perlin_noise_omp 8 10000
 bin/perlin_noise_omp 10 10000
 
+bin/perlin_noise_cuda 1 10000
+bin/perlin_noise_cuda 2 10000
+bin/perlin_noise_cuda 4 10000
+bin/perlin_noise_cuda 8 10000
 bin/perlin_noise_cuda 16 10000
